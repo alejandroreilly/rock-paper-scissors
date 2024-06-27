@@ -51,7 +51,7 @@ function playGame(){
     for(let i = 0; i<5; i++){
     //initialize the score variables within the global scope
     const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+    const computerSelection = computerChoice();
         playRound(humanSelection, computerSelection);
     }
 
