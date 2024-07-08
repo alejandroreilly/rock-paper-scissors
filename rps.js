@@ -48,6 +48,9 @@ function playGame(){
         }
     }
 
+    //add the buttons to js
+    
+
 
     console.log(`Your Score: ${humanScore}. Computer's Score: ${computerScore}`);
 }
