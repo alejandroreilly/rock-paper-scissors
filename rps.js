@@ -63,6 +63,10 @@ function playGame(){
         }else{
             //tie
             message.textContent = (`Computer chose ${computer}. It's a Tie! ${human} equals ${computer}!`);
+            if (humanScore >= 5 || computerScore >= 5){
+                humanScore = 0, computerScore = 0;
+                results.textContent = (`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+            }
             return;
         }
     }
