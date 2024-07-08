@@ -25,34 +25,37 @@ function getHumanChoice(){
 }
 
 
-function playGame(){
-    let humanScore = 0 , computerScore = 0;
+let humanScore = 0 , computerScore = 0;
 
-    function playRound(human, computer){
-        human = human.toLowerCase();
-        //win cases
-        if ((human === "rock" && computer === "scissors") || (human === "scissors" && computer === "paper") || (human === "paper" && computer === "rock")){
-            console.log(`You Win! ${human} beats ${computer}`);
-            humanScore++;
-            return;
-    
-        //lose conditions vvv
-        }else if((computer === "rock" && human === "scissors") || (computer === "scissors" && human === "paper") || (computer === "paper" && human === "rock")){
-            console.log(`You Lose! ${computer} beats ${human}`);
-            computerScore++;
-            return;
-        }else{
-            //tie
-            console.log(`It's a Tie! ${human} equals ${computer}!`);
-            return;
-        }
+function playRound(human, computer){
+    human = human.toLowerCase();
+    //win cases
+    if ((human === "rock" && computer === "scissors") || (human === "scissors" && computer === "paper") || (human === "paper" && computer === "rock")){
+        console.log(`You Win! ${human} beats ${computer}`);
+        humanScore++;
+        return;
+
+    //lose conditions vvv
+    }else if((computer === "rock" && human === "scissors") || (computer === "scissors" && human === "paper") || (computer === "paper" && human === "rock")){
+        console.log(`You Lose! ${computer} beats ${human}`);
+        computerScore++;
+        return;
+    }else{
+        //tie
+        console.log(`It's a Tie! ${human} equals ${computer}!`);
+        return;
     }
-
-    //add the buttons to js
-    
-
-
-    console.log(`Your Score: ${humanScore}. Computer's Score: ${computerScore}`);
 }
 
-playGame();
+//add the buttons to js
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener('click', function(){
+        let comp = computerChoice()
+        playRound(button.id, comp)
+    })
+});
+
+
+console.log(`Your Score: ${humanScore}. Computer's Score: ${computerScore}`);
