@@ -27,6 +27,7 @@ function getHumanChoice(){
 
 let humanScore = 0 , computerScore = 0;
 const message = document.querySelector("div.score");
+const results = document.querySelector("div.results");
 
 function playRound(human, computer){
     human = human.toLowerCase();
@@ -34,12 +35,15 @@ function playRound(human, computer){
     if ((human === "rock" && computer === "scissors") || (human === "scissors" && computer === "paper") || (human === "paper" && computer === "rock")){
         message.textContent = (`Computer chose ${computer}. You Win! ${human} beats ${computer}`);
         humanScore++;
+        results.textContent = (`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
         return;
 
     //lose conditions vvv
     }else if((computer === "rock" && human === "scissors") || (computer === "scissors" && human === "paper") || (computer === "paper" && human === "rock")){
         message.textContent = (`Computer chose ${computer}. You Lose! ${computer} beats ${human}`);
         computerScore++;
+
+        results.textContent = (`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
         return;
     }else{
         //tie
